@@ -1,12 +1,10 @@
-import react from 'react';
-import reactDOM from 'react-dom';
 import "../css/Header.css";
 
 
 const Header = () =>
     <div className="header-Main">
         <div className="logo">
-            <img className="logo-img" src="../images/logo.jpg" />
+            <img className="logo-img" src="../images/logo.jpg" alt="Field Construct"/>
         </div>
         <div className="nav-items">
             <a href="#" className="text-xs"> Home </a>
