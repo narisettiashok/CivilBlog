@@ -1,11 +1,20 @@
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
 import './App.css';
-import Header from "./components/Header";
+import AuthLayout from "./layouts/AuthLayout";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        {/* add routes with layouts */}
+        <Route path="/auth" component={AuthLayout} />
+        <Route path="/" exact={true} component={MainLayout} />
+        {/* add redirect for first page */}
+        <Redirect from="*" to="/" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
