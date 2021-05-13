@@ -1,7 +1,11 @@
+import AuthContainer from '../../components/AuthContainer';
+
 function ForgotPasswordPage() {
     return (
         <>
-            <h4>Forgot Password Page</h4>
+            <AuthContainer>
+                <h4 className="w-full text-center">Forgot Password Page</h4>
+            </AuthContainer>
         </>
     );
 }
