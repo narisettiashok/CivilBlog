@@ -10,7 +10,7 @@ function ForgotPasswordPage() {
                 <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
             </div>
 
-            {/* Login Form */}
+            {/* Forgot Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
                     <form>
