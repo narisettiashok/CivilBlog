@@ -19,7 +19,7 @@ function ForgotPasswordPage() {
                                 Forgot Password
                             </h1>
                             <p className="text-xs text-center pb-10">
-                                Please enter your registered email ID and company name to reset password?
+                                Please enter your registered email ID to reset password
                             </p>
                         </div>
 
