@@ -1,8 +1,8 @@
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom'; 
 
 import FormContainer from '../../components/FormContainer';
 
-function ResetPasswordPage() {
+function ChangePasswordPage() {
     return(
         <>
              {/* Construction Image */}
@@ -10,7 +10,7 @@ function ResetPasswordPage() {
                 <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
             </div>
 
-            {/* Reset Password Form */}
+            {/* Change Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
                     <form>
@@ -21,6 +21,18 @@ function ResetPasswordPage() {
                             <p className="text-xs text-center pb-10">
                                 Please enter new password to reset your password
                             </p>
+                        </div>
+
+                        <div className="form-group">
+                            <label className="form-label"
+                                htmlFor="old-password">
+                                Old Password
+                            </label>
+                            <input type="password"
+                                id="old-password"
+                                className="form-control"
+                                placeholder="Old Password"
+                            />
                         </div>
 
                         <div className="form-group">
@@ -60,4 +72,4 @@ function ResetPasswordPage() {
     )
 }
 
-export default ResetPasswordPage;
+export default ChangePasswordPage;
