@@ -5,11 +5,11 @@ import {EyeIcon, EyeOffIcon} from '@heroicons/react/outline';
 import FormContainer from '../../components/FormContainer';
 
 function ResetPasswordPage() {
-    const [showPassword, setShowpassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
-    function togglePasswordVisibilty() {
+    function togglePasswordVisibility() {
         return(
-            setShowpassword(showPassword => !showPassword)
+            setShowPassword(showPassword => !showPassword)
         )
     };
 
@@ -43,7 +43,7 @@ function ResetPasswordPage() {
                                 className="form-control"
                                 placeholder="New Password"
                             />
-                            <i className="absolute right-2 top-8 cursor-pointer" onClick={togglePasswordVisibilty}>
+                            <i className="absolute right-2 top-8 cursor-pointer" onClick={togglePasswordVisibility}>
                                 {showPassword ? <EyeIcon className="w-5 h-6"/> : <EyeOffIcon className="w-5 h-6"/>}
                             </i>
                         </div>

@@ -7,7 +7,7 @@ import FormContainer from '../../components/FormContainer';
 function ChangePasswordPage() {
     const [showPassword, setShowPassword] = useState(false);
 
-    function togglePasswordVisibilty() {
+    function togglePasswordVisibility() {
         return(
             setShowPassword(showPassword => !showPassword)
         )
@@ -55,7 +55,7 @@ function ChangePasswordPage() {
                                 className="form-control"
                                 placeholder="New Password"
                             />
-                            <i className="absolute right-2 top-8 cursor-pointer" onClick={togglePasswordVisibilty}>
+                            <i className="absolute right-2 top-8 cursor-pointer" onClick={togglePasswordVisibility}>
                                 {showPassword ? <EyeIcon className="w-5 h-6"/> : <EyeOffIcon className="w-5 h-6"/>}
                             </i>
                         </div>
