@@ -1,8 +1,18 @@
+import React, {useState} from 'react';
+import {EyeIcon, EyeOffIcon} from '@heroicons/react/outline';
 import {Link} from 'react-router-dom'; 
 
 import FormContainer from '../../components/FormContainer';
 
 function ChangePasswordPage() {
+    const [showPassword, setShowPassword] = useState(false);
+
+    function togglePasswordVisibilty() {
+        return(
+            setShowPassword(showPassword => !showPassword)
+        )
+    };
+
     return(
         <>
              {/* Construction Image */}
@@ -40,11 +50,14 @@ function ChangePasswordPage() {
                                 htmlFor="new-password">
                                 New Password
                             </label>
-                            <input type="password"
+                            <input type={showPassword ? "test" : "password"}
                                 id="new-password"
                                 className="form-control"
                                 placeholder="New Password"
                             />
+                            <i className="absolute right-2 top-8 cursor-pointer" onClick={togglePasswordVisibilty}>
+                                {showPassword ? <EyeIcon className="w-5 h-6"/> : <EyeOffIcon className="w-5 h-6"/>}
+                            </i>
                         </div>
 
                         <div className="form-group">
