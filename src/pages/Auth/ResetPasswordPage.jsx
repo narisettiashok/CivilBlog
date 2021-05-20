@@ -28,7 +28,7 @@ function ResetPasswordPage() {
                             <h1 className="uppercase font-bold text-xl text-center pb-3">
                                 Reset Password
                             </h1>
-                            <p className="text-xs text-center pb-10">
+                            <p className="text-xs text-center pb-5">
                                 Please enter new password to reset your password
                             </p>
                         </div>
