@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
 import {EyeIcon, EyeOffIcon} from '@heroicons/react/outline';
+import {Link} from 'react-router-dom'; 
 
 import FormContainer from '../../components/FormContainer';
 
-function ResetPasswordPage() {
+function ChangePasswordPage() {
     const [showPassword, setShowPassword] = useState(false);
 
     function togglePasswordVisibility() {
@@ -20,7 +20,7 @@ function ResetPasswordPage() {
                 <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
             </div>
 
-            {/* Reset Password Form */}
+            {/* Change Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
                     <form>
@@ -35,10 +35,22 @@ function ResetPasswordPage() {
 
                         <div className="form-group">
                             <label className="form-label"
+                                htmlFor="old-password">
+                                Old Password
+                            </label>
+                            <input type="password"
+                                id="old-password"
+                                className="form-control"
+                                placeholder="Old Password"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label className="form-label"
                                 htmlFor="new-password">
                                 New Password
                             </label>
-                            <input type={showPassword ? "text" : "password"}
+                            <input type={showPassword ? "test" : "password"}
                                 id="new-password"
                                 className="form-control"
                                 placeholder="New Password"
@@ -73,4 +85,4 @@ function ResetPasswordPage() {
     )
 }
 
-export default ResetPasswordPage;
+export default ChangePasswordPage;
