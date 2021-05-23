@@ -35,14 +35,13 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-
 /* Form styles */
-
 .form-group {
   @apply relative w-full mb-3;
 }
