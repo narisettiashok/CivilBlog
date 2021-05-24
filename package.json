@@ -42,7 +42,9 @@
     ]
   },
   "devDependencies": {
+    "formik": "^2.2.8",
     "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
+    "stylelint-config-standard": "^22.0.0",
+    "yup": "^0.32.9"
   }
 }
