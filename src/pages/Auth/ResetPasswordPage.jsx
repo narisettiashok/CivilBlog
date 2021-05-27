@@ -15,8 +15,8 @@ function ResetPasswordPage(props) {
     };
     const formikValidationSchema = Yup.object({
         newPassword: Yup.string()
-        .matches(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,15})/,"Must Contain 8 Characters, One Number and one special case Character")
-        .max(15, 'Must be 15 characters or less').required('Required'),
+            .matches(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,15})/, "Must Contain 8 Characters, One Number and one special case Character")
+            .max(15, 'Must be 15 characters or less').required('Required'),
         confirmPassword: Yup.string().oneOf([Yup.ref('newPassword'), ''], 'Password much match').required('Required')
     });
     const onSubmit = (values, onSubmitProps) => {
@@ -39,11 +39,11 @@ function ResetPasswordPage(props) {
 
     return (
         <>
-             <ConstructionImage />
+            <ConstructionImage />
             {/* Reset Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
-                    <Formik 
+                    <Formik
                         initialValues={formikInitialValues}
                         validationSchema={formikValidationSchema}
                         onSubmit={onSubmit}
@@ -60,7 +60,7 @@ function ResetPasswordPage(props) {
                                         </p>
                                     </div>
 
-                                    <FormControl 
+                                    <FormControl
                                         control="input"
                                         type={showPassword ? "text" : "password"}
                                         label="New Password"
@@ -71,7 +71,7 @@ function ResetPasswordPage(props) {
                                         togglePasswordVisibility={togglePasswordVisibility}
                                     />
 
-                                    <FormControl 
+                                    <FormControl
                                         control='input'
                                         type='password'
                                         label='Confirm Password'
@@ -82,13 +82,13 @@ function ResetPasswordPage(props) {
 
                                     <div className="text-center mt-6">
                                         <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                                        type="submit" disabled={!formik.isValid || formik.isSubmitting}>
-                                        Reset Password {formik.isSubmitting && <LoadingSpinner />}
+                                            type="submit" disabled={!formik.isValid || formik.isSubmitting}>
+                                            Reset Password {formik.isSubmitting && <LoadingSpinner />}
                                         </button>
                                     </div>
                                 </Form>
                         }
-                    </Formik>                       
+                    </Formik>
                 </FormContainer>
             </div>
         </>

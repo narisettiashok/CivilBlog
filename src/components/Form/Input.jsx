@@ -10,7 +10,7 @@ function Input(props) {
             <Field className="form-control" id={id} name={name} {...rest} />
             <ErrorMessage name={name} component={TextError} />
             <i className="absolute right-2 top-8 cursor-pointer" onClick={togglePasswordVisibility}>{passwordVisible}</i>
-        </div> 
+        </div>
     )
 }
-export default Input
+export default Input;

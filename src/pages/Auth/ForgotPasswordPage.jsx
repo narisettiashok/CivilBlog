@@ -1,4 +1,4 @@
-import {Form, Formik} from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
 import FormContainer from '../../components/FormContainer';
@@ -14,16 +14,16 @@ function ForgotPasswordPage(props) {
         email: Yup.string().email('Invalid Email Address').required('Required')
     });
     const onSubmit = (values, onSubmitProps) => {
-        setTimeout(()=> {
+        setTimeout(() => {
             onSubmitProps.setSubmitting(false)
             onSubmitProps.resetForm()
             props.history.push('/auth/reset-password')
-        },1000)
+        }, 1000)
         console.log('Form data', values)
-    }
+    };
     return (
         <>
-             <ConstructionImage />
+            <ConstructionImage />
             {/* Forgot Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
@@ -37,20 +37,20 @@ function ForgotPasswordPage(props) {
                                 <Form>
                                     <div className="form-group">
                                         <h1 className="uppercase font-bold text-xl text-center pb-3">
-                                        Forgot Password
+                                            Forgot Password
                                         </h1>
                                         <p className="text-xs text-center pb-10">
-                                        Please enter your registered email ID to reset password
+                                            Please enter your registered email ID to reset password
                                         </p>
                                     </div>
 
-                                    <FormControl 
-                                    control='input'
-                                    type='email'
-                                    label='Email'
-                                    id='email'
-                                    name='email'
-                                    placeholder='Email'
+                                    <FormControl
+                                        control='input'
+                                        type='email'
+                                        label='Email'
+                                        id='email'
+                                        name='email'
+                                        placeholder='Email'
                                     />
 
                                     <div className="text-center mt-6">

@@ -29,7 +29,7 @@ function LoginPage(props) {
             setSubmitting(false);
             props.history.push("/app/dashboard");
         }, 1000);
-    }
+    };
 
     return (
         <>
