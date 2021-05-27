@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import {EyeIcon, EyeOffIcon} from "@heroicons/react/outline";
 import ConstructionImage from "../../components/ConstructionImage";
 
 import FormContainer from '../../components/FormContainer';
