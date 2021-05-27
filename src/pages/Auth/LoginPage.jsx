@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-import ConstructionImage from "../../components/ConstructionImage";
 import FormContainer from "../../components/FormContainer";
-import InputField from "../../components/Form/InputField";
-import Checkbox from "../../components/Form/Checkbox";
+import FormControl from "../../components/Form/FormControl";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import ConstructionImage from "../../components/ConstructionImage";
 
 function LoginPage(props) {
     const formikInitialValues = {
@@ -46,25 +45,32 @@ function LoginPage(props) {
                         {
                             formik => (
                                 <Form>
-                                    <InputField
+                                    <FormControl
+                                        control="input"
+                                        type="text"
                                         label="Email"
+                                        id="email"
                                         name="email"
-                                        type="email"
                                         placeholder="Email"
                                     />
 
-                                    <InputField
-                                        label="Password"
-                                        name="password"
+                                    <FormControl
+                                        control="input"
                                         type="password"
+                                        label="Password"
+                                        id="password"
+                                        name="password"
                                         placeholder="Password"
                                     />
 
-                                    <Checkbox name="rememberMe">
+                                    <FormControl
+                                        control="checkbox"
+                                        name="rememberMe"
+                                    >
                                         <span className="ml-2 text-sm font-semibold">
                                             Remember me
                                         </span>
-                                    </Checkbox>
+                                    </FormControl>
 
                                     <button type="submit"
                                         className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow

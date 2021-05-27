@@ -1,69 +1,110 @@
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
+
+import FormControl from "../../components/Form/FormControl";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import ConstructionImage from "../../components/ConstructionImage";
 import FormContainer from "../../components/FormContainer";
+import { PASSWORD_REGEX } from "../../constants";
 
-function SignUpPage() {
+function SignUpPage(props) {
+    const formikInitialValues = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        companyName: ""
+    };
+    const formikValidationSchema = Yup.object({
+        firstName: Yup.string()
+            .required("Required"),
+        lastName: Yup.string()
+            .required("Required"),
+        email: Yup.string()
+            .email("Invalid Email Address").required("Required"),
+        password: Yup.string()
+            .matches(PASSWORD_REGEX.regex, PASSWORD_REGEX.statement)
+            .max(15, "Must be 15 characters or less").required("Required"),
+        companyName: Yup.string()
+            .max(100, "Must be 100 characters or less").required("Required")
+    });
+    const onSubmit = (values, onSubmitProps) => {
+        setTimeout(() => {
+            onSubmitProps.setSubmitting(false);
+            onSubmitProps.resetForm();
+            props.history.push("/auth/login");
+        }, 1000);
+    }
+
     return (
         <>
             <ConstructionImage />
             {/* Sign up Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
-                    <form>
-                        <div className="form-group">
-                            <label className="form-label"
-                                htmlFor="firstName">
-                                First Name
-                            </label>
-                            <input type="text"
-                                id="firstName"
-                                className="form-control"
-                                placeholder="First Name"
-                            />
-                        </div>
+                    <Formik
+                        initialValues={formikInitialValues}
+                        validationSchema={formikValidationSchema}
+                        onSubmit={onSubmit}
+                    >
+                        {
+                            formik => (
+                                <Form>
+                                    <FormControl
+                                        control="input"
+                                        type="text"
+                                        label="First Name"
+                                        id="firstName"
+                                        name="firstName"
+                                        placeholder="First Name"
+                                    />
 
-                        <div className="form-group">
-                            <label className="form-label"
-                                htmlFor="lastName">
-                                Last Name
-                            </label>
-                            <input type="text"
-                                id="lastName"
-                                className="form-control"
-                                placeholder="Last Name"
-                            />
-                        </div>
+                                    <FormControl
+                                        control="input"
+                                        type="text"
+                                        label="Last Name"
+                                        id="lastName"
+                                        name="lastName"
+                                        placeholder="Last Name"
+                                    />
 
-                        <div className="form-group">
-                            <label className="form-label"
-                                htmlFor="email">
-                                Email
-                            </label>
-                            <input type="email"
-                                id="email"
-                                className="form-control"
-                                placeholder="Email"
-                            />
-                        </div>
+                                    <FormControl
+                                        control="input"
+                                        type="email"
+                                        label="Email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Email"
+                                    />
 
-                        <div className="form-group">
-                            <label className="form-label"
-                                htmlFor="companyName">
-                                Company
-                            </label>
-                            <input type="text"
-                                id="companyName"
-                                className="form-control"
-                                placeholder="Company Name"
-                            />
-                        </div>
+                                    <FormControl
+                                        control="input"
+                                        type="password"
+                                        label="Password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Password"
+                                    />
 
-                        <div className="text-center mt-6">
-                            <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                                type="button">
-                                Sign Up
-                            </button>
-                        </div>
-                    </form>
+                                    <FormControl
+                                        control="input"
+                                        type="text"
+                                        label="Company Name"
+                                        id="companyName"
+                                        name="companyName"
+                                        placeholder="Company Name"
+                                    />
+
+                                    <div className="text-center mt-6">
+                                        <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                                            type="submit" disabled={!formik.isValid || formik.isSubmitting}>
+                                            Sign Up {formik.isSubmitting && <LoadingSpinner />}
+                                        </button>
+                                    </div>
+                                </Form>
+                            )
+                        }
+                    </Formik>
                 </FormContainer>
             </div>
         </>

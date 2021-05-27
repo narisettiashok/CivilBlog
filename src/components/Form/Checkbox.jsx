@@ -1,7 +1,7 @@
 import { useField } from "formik";
 
 function Checkbox({ children, ...props }) {
-    const [field, meta] = useField({ ...props, type: 'checkbox' });
+    const [field, meta] = useField({ ...props, type: "checkbox" });
     return (
         <>
             <label className="inline-flex items-center cursor-pointer mb-3">
