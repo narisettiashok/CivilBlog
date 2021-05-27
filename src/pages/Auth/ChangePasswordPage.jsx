@@ -3,6 +3,7 @@ import {EyeIcon, EyeOffIcon} from '@heroicons/react/outline';
 import {Link} from 'react-router-dom'; 
 
 import FormContainer from '../../components/FormContainer';
+import ConstructionImage from '../../components/ConstructionImage';
 
 function ChangePasswordPage() {
     const [showPassword, setShowPassword] = useState(false);
@@ -15,11 +16,7 @@ function ChangePasswordPage() {
 
     return(
         <>
-             {/* Construction Image */}
-             <div className="w-full lg:w-3/6 px-4 hidden md:block">
-                <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
-            </div>
-
+             <ConstructionImage />
             {/* Change Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
