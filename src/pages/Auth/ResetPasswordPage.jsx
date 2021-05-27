@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom';
-import {EyeIcon, EyeOffIcon} from '@heroicons/react/outline';
+import React, {useState} from "react"
+import {Link} from "react-router-dom";
+import {EyeIcon, EyeOffIcon} from "@heroicons/react/outline";
 
-import FormContainer from '../../components/FormContainer';
+import ConstructionImage from "../../components/ConstructionImage";
+import FormContainer from "../../components/FormContainer";
 
 function ResetPasswordPage() {
     const [showPassword, setShowPassword] = useState(false);
@@ -15,11 +16,7 @@ function ResetPasswordPage() {
 
     return(
         <>
-             {/* Construction Image */}
-             <div className="w-full lg:w-3/6 px-4 hidden md:block">
-                <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
-            </div>
-
+             <ConstructionImage />
             {/* Reset Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>

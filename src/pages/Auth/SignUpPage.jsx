@@ -1,13 +1,10 @@
-import FormContainer from '../../components/FormContainer';
+import ConstructionImage from "../../components/ConstructionImage";
+import FormContainer from "../../components/FormContainer";
 
 function SignUpPage() {
     return (
         <>
-            {/* Construction Image */}
-            <div className="w-full lg:w-3/6 px-4 hidden md:block">
-                <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
-            </div>
-
+            <ConstructionImage />
             {/* Sign up Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>

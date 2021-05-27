@@ -10,9 +10,9 @@ function App() {
       <Switch>
         {/* add routes with layouts */}
         <Route path="/auth" component={AuthLayout} />
-        <Route path="/" exact={true} component={MainLayout} />
+        <Route path="/app" component={MainLayout} />
         {/* add redirect for first page */}
-        <Redirect from="*" to="/" />
+        <Redirect from="*" to="/auth" />
       </Switch>
     </BrowserRouter>
   );
