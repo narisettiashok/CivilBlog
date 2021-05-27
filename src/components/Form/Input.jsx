@@ -1,6 +1,6 @@
-import React from 'react';
-import { ErrorMessage, Field } from 'formik';
-import TextError from './TextError';
+import React from "react";
+import { ErrorMessage, Field } from "formik";
+import TextError from "./TextError";
 
 function Input(props) {
     const { label, id, name, togglePasswordVisibility, passwordVisible, ...rest } = props
@@ -13,4 +13,4 @@ function Input(props) {
         </div> 
     )
 }
-export default Input
+export default Input;

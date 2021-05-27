@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { MenuIcon, BellIcon } from '@heroicons/react/outline';
+import { Link } from "react-router-dom";
+import { MenuIcon, BellIcon } from "@heroicons/react/outline";
 
 import profilePic from "../../assets/images/profile-pic.png";
 import logo from "../../assets/images/logo2.png";
