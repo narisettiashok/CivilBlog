@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import {EyeIcon, EyeOffIcon} from "@heroicons/react/outline";
+import ConstructionImage from "../../components/ConstructionImage";
 
 import FormContainer from '../../components/FormContainer';
 import FormControl from '../../components/Form/FormControl';
@@ -27,6 +29,7 @@ function ResetPasswordPage(props) {
         console.log('Form data', values)
     };
 
+
     const [showPassword, setShowPassword] = useState(false);
 
     function togglePasswordVisibility() {
@@ -37,11 +40,7 @@ function ResetPasswordPage(props) {
 
     return (
         <>
-            {/* Construction Image */}
-            <div className="w-full lg:w-3/6 px-4 hidden md:block">
-                <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
-            </div>
-
+             <ConstructionImage />
             {/* Reset Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>

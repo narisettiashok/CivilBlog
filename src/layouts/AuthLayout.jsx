@@ -7,17 +7,15 @@ import ForgotPasswordPage from '../pages/Auth/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/Auth/ResetPasswordPage';
 import ChangePasswordPage from '../pages/Auth/ChangePasswordPage';
 
-import './AuthLayout.css';
-
 function AuthLayout() {
     return (
         <>
             <AuthNavbar />
             <main>
                 <section className="absolute w-full h-full">
-                    <div className="absolute top-0 w-full h-full auth-background">
+                    <div className="absolute top-0 w-full h-full">
                         <div className="container mx-auto px-4 h-full">
-                            <div className="flex content-center items-center justify-between h-full w-11/12 mx-auto">
+                            <div className="h-full w-11/12 mx-auto flex content-center mt-44 md:mt-0 md:items-center justify-between ">
                                 <Switch>
                                     <Route path='/auth/login' exact={true} component={LoginPage} />
                                     <Route path='/auth/sign-up' exact={true} component={SignUpPage} />

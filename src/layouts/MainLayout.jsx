@@ -1,25 +1,28 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import HomePage from '../pages/HomePage';
-import Header from '../components/Header';
+import DashboardPage from '../pages/DashboardPage';
+import Header from '../components/Navbars/MainNavbar';
+import SideNavbar from '../components/Navbars/SideNavbar';
 
 function MainLayout() {
     return (
         <>
-            <div className="container max-w-screen-xl mx-auto">
-                <Header />
-                <div className="text-center">
-                    <h4 className="text-xl">This is the layout for the pages after the user logs in</h4>
-                    <p>The Header and footer have to be added</p>
-                    <p>The main content will be pages after the user logs in</p>
-                </div>
-                <Switch>
-                    <Route path='/home' component={HomePage} exact={true} />
-                </Switch>
-            </div>
+            <main>
+                <section className="absolute w-full h-full">
+                    <div className="absolute top-0 w-full h-full">
+                        <Header />
+                        <SideNavbar />
+                        <div className="relative max-h-full sm:w-11/12 lg:w-5/6 ml-auto overflow-hidden p-4">
+                            <Switch>
+                                <Route path='/app/dashboard' exact={true} component={DashboardPage} />
+                                <Redirect from="/app" to="/app/dashboard" />
+                            </Switch>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </>
     );
 }
-
 
 export default MainLayout;

@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import FormContainer from '../../components/FormContainer';
 import FormControl from '../../components/Form/FormControl';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import ConstructionImage from '../../components/ConstructionImage';
 
 function ChangePasswordPage(props) {
     const formikInitialValues = {
@@ -39,11 +40,7 @@ function ChangePasswordPage(props) {
 
     return(
         <>
-             {/* Construction Image */}
-             <div className="w-full lg:w-3/6 px-4 hidden md:block">
-                <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
-            </div>
-
+             <ConstructionImage />
             {/* Change Password Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>

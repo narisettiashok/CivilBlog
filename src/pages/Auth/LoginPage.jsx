@@ -1,42 +1,39 @@
-import { Link } from 'react-router-dom';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import { Link } from "react-router-dom";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
 import FormContainer from '../../components/FormContainer';
 import FormControl from '../../components/Form/FormControl';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import ConstructionImage from "../../components/ConstructionImage";
 
 function LoginPage(props) {
     const formikInitialValues = {
-        email: '',
-        password: '',
+        email: "",
+        password: "",
         rememberMe: false
     };
     const formikValidationSchema = Yup.object({
         email: Yup.string()
-            .email('Invalid email address')
-            .required('Required'),
+            .email("Invalid email address")
+            .required("Required"),
         password: Yup.string()
-            .min(8, 'Must be 8 characters or more')
-            .max(15, 'Must be 15 characters or less')
-            .required('Required'),
+            .min(8, "Must be 8 characters or more")
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
         rememberMe: Yup.boolean()
     });
 
     function formikOnSubmit(values, { setSubmitting }) {
         setTimeout(() => {
             setSubmitting(false);
-            props.history.push('/home')
+            props.history.push("/app/dashboard");
         }, 1000);
     }
 
     return (
         <>
-            {/* Construction Image */}
-            <div className="w-full lg:w-3/6 px-4 hidden md:block">
-                <img src={require("../../assets/images/construction.svg").default} alt="Construction"></img>
-            </div>
-
+            <ConstructionImage />
             {/* Login Form */}
             <div className="w-full lg:w-2/6">
                 <FormContainer>
