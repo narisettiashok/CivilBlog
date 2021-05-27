@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom';
 import {Form, Formik} from 'formik';
 import * as Yup from 'yup';
 
@@ -56,7 +55,7 @@ function ForgotPasswordPage(props) {
                                     name='email'
                                     placeholder='Email'
                                     />
-                                    
+
                                     <div className="text-center mt-6">
                                         <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                                             type="submit" disabled={!formik.isValid || formik.isSubmitting}>

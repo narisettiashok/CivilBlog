@@ -18,8 +18,10 @@ function SignUpPage(props) {
         firstName: Yup.string().required('Required'),
         lastName: Yup.string().required('Required'),
         email: Yup.string().email('Invalid Email Address').required('Required'),
-        password: Yup.string().min(8, 'Must be 8 characters or more').max(15, 'Must be 15 characters or less').required('Required'),
-        companyName: Yup.string().required('Required')
+        password: Yup.string()
+        .matches(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,15})/,"Must Contain 8 Characters, One Number and one special case Character")
+        .max(15, 'Must be 15 characters or less').required('Required'),
+        companyName: Yup.string().max(100,'Must be 100 characters or less').required('Required')
     });
     const onSubmit = (values, onSubmitProps) => {
         setTimeout(()=> {

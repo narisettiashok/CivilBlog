@@ -15,7 +15,9 @@ function ChangePasswordPage(props) {
     };
     const formikValidationSchema = Yup.object({
         oldPassword: Yup.string().min(8, 'Must be 8 characters or more').max(15, 'Must be 15 characters or less').required('Required'),
-        newPassword: Yup.string().min(8, 'Must be 8 characters or more').max(15, 'Must be 15 characters or less').required('Required'),
+        newPassword: Yup.string()
+        .matches(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,15})/,"Must Contain 8 Characters, One Number and one special case Character")
+        .max(15, 'Must be 15 characters or less').required('Required'),
         confirmPassword: Yup.string().oneOf([Yup.ref('newPassword'), ''], 'Password much match').required('Required')
     });
     const onSubmit = (values, onSubmitProps) => {
