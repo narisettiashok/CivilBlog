@@ -1,17 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo2.png";
 
 function AuthNavbar() {
     return (
         <>
-            <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 border-b-2">
-                <div className="container mx-auto flex justify-between items-center px-4">
-                    <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-                        <Link className="text-blue-900 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-                            to="/">
-                            Field Construct
-                        </Link>
-                    </div>
-                </div>
+            <nav className="absolute top-0 z-50 w-full border-b-2 p-2">
+                <Link className="pl-4 py-2 flex items-center space-x-3"
+                    to="/">
+                    <img className="h-9 w-9"
+                        src={logo}
+                        alt="Logo" 
+                    />
+                    <span className="text-sm sm:text-lg font-semibold text-blue-900">Field Construct</span>
+                </Link>
             </nav>
         </>
     );

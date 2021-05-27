@@ -27,7 +27,7 @@ function LoginPage(props) {
     function formikOnSubmit(values, { setSubmitting }) {
         setTimeout(() => {
             setSubmitting(false);
-            props.history.push('/home')
+            props.history.push("/app/dashboard");
         }, 1000);
     }
 
