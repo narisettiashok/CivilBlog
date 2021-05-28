@@ -1,9 +1,9 @@
-import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
 
-import FormContainer from '../../components/FormContainer';
-import FormControl from '../../components/Form/FormControl';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import FormContainer from "../../components/FormContainer";
+import FormControl from "../../components/Form/FormControl";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import ConstructionImage from "../../components/ConstructionImage";
 
 function ForgotPasswordPage(props) {
@@ -11,16 +11,17 @@ function ForgotPasswordPage(props) {
         email: ""
     };
     const formikValidationSchema = Yup.object({
-        email: Yup.string().email('Invalid Email Address').required('Required')
+        email: Yup.string()
+            .email("Invalid Email Address")
+            .required("Required")
     });
     const onSubmit = (values, onSubmitProps) => {
         setTimeout(() => {
             onSubmitProps.setSubmitting(false)
             onSubmitProps.resetForm()
-            props.history.push('/auth/reset-password')
-        }, 1000)
-        console.log('Form data', values)
-    };
+            props.history.push("/auth/reset-password")
+        }, 1000);
+    }
     return (
         <>
             <ConstructionImage />
@@ -33,7 +34,7 @@ function ForgotPasswordPage(props) {
                         onSubmit={onSubmit}
                     >
                         {
-                            formik =>
+                            formik => (
                                 <Form>
                                     <div className="form-group">
                                         <h1 className="uppercase font-bold text-xl text-center pb-3">
@@ -45,21 +46,23 @@ function ForgotPasswordPage(props) {
                                     </div>
 
                                     <FormControl
-                                        control='input'
-                                        type='email'
-                                        label='Email'
-                                        id='email'
-                                        name='email'
-                                        placeholder='Email'
+                                        control="input"
+                                        type="email"
+                                        label="Email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Email"
                                     />
 
                                     <div className="text-center mt-6">
-                                        <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                                        <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 
+                                            rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                                             type="submit" disabled={!formik.isValid || formik.isSubmitting}>
                                             Reset Password {formik.isSubmitting && <LoadingSpinner />}
                                         </button>
                                     </div>
                                 </Form>
+                            )
                         }
                     </Formik>
                 </FormContainer>

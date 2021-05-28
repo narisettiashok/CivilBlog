@@ -4,7 +4,8 @@
         "heroicons",
         "formik",
         "Formik",
-        "semibold"
+        "semibold",
+        "headlessui"
     ],
     //disable editor linters as stylelint is enabled
     "css.validate": false,

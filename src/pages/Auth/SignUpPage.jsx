@@ -1,11 +1,11 @@
-import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
 
-import FormControl from '../../components/Form/FormControl';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import FormControl from "../../components/Form/FormControl";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import ConstructionImage from "../../components/ConstructionImage";
 import FormContainer from "../../components/FormContainer";
-
+import { PASSWORD_REGEX } from "../../constants";
 
 function SignUpPage(props) {
     const formikInitialValues = {
@@ -16,22 +16,25 @@ function SignUpPage(props) {
         companyName: ""
     };
     const formikValidationSchema = Yup.object({
-        firstName: Yup.string().required('Required'),
-        lastName: Yup.string().required('Required'),
-        email: Yup.string().email('Invalid Email Address').required('Required'),
+        firstName: Yup.string()
+            .required("Required"),
+        lastName: Yup.string()
+            .required("Required"),
+        email: Yup.string()
+            .email("Invalid Email Address").required("Required"),
         password: Yup.string()
-            .matches(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,15})/, "Must Contain 8 Characters, One Number and one special case Character")
-            .max(15, 'Must be 15 characters or less').required('Required'),
-        companyName: Yup.string().max(100, 'Must be 100 characters or less').required('Required')
+            .matches(PASSWORD_REGEX.regex, PASSWORD_REGEX.statement)
+            .max(15, "Must be 15 characters or less").required("Required"),
+        companyName: Yup.string()
+            .max(100, "Must be 100 characters or less").required("Required")
     });
     const onSubmit = (values, onSubmitProps) => {
         setTimeout(() => {
-            onSubmitProps.setSubmitting(false)
-            onSubmitProps.resetForm()
-            props.history.push('/auth/login')
-        }, 1000)
-        console.log('Form data', values)
-    };
+            onSubmitProps.setSubmitting(false);
+            onSubmitProps.resetForm();
+            props.history.push("/auth/login");
+        }, 1000);
+    }
 
     return (
         <>
@@ -45,51 +48,51 @@ function SignUpPage(props) {
                         onSubmit={onSubmit}
                     >
                         {
-                            formik =>
+                            formik => (
                                 <Form>
                                     <FormControl
-                                        control='input'
-                                        type='text'
-                                        label='First Name'
-                                        id='firstName'
-                                        name='firstName'
-                                        placeholder='First Name'
+                                        control="input"
+                                        type="text"
+                                        label="First Name"
+                                        id="firstName"
+                                        name="firstName"
+                                        placeholder="First Name"
                                     />
 
                                     <FormControl
-                                        control='input'
-                                        type='text'
-                                        label='Last Name'
-                                        id='lastName'
-                                        name='lastName'
-                                        placeholder='Last Name'
+                                        control="input"
+                                        type="text"
+                                        label="Last Name"
+                                        id="lastName"
+                                        name="lastName"
+                                        placeholder="Last Name"
                                     />
 
                                     <FormControl
-                                        control='input'
-                                        type='email'
-                                        label='Email'
-                                        id='email'
-                                        name='email'
-                                        placeholder='Email'
+                                        control="input"
+                                        type="email"
+                                        label="Email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Email"
                                     />
 
                                     <FormControl
-                                        control='input'
-                                        type='password'
-                                        label='Password'
-                                        id='password'
-                                        name='password'
-                                        placeholder='Password'
+                                        control="input"
+                                        type="password"
+                                        label="Password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Password"
                                     />
 
                                     <FormControl
-                                        control='input'
-                                        type='text'
-                                        label='Company Name'
-                                        id='companyName'
-                                        name='companyName'
-                                        placeholder='Company Name'
+                                        control="input"
+                                        type="text"
+                                        label="Company Name"
+                                        id="companyName"
+                                        name="companyName"
+                                        placeholder="Company Name"
                                     />
 
                                     <div className="text-center mt-6">
@@ -99,6 +102,7 @@ function SignUpPage(props) {
                                         </button>
                                     </div>
                                 </Form>
+                            )
                         }
                     </Formik>
                 </FormContainer>
