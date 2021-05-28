@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SideNavItems from "../SideNavItems";
+import NavItems from "./NavItems";
 import logo from "../../assets/images/logo2.png";
 
 function SideNavbar() {
@@ -18,7 +18,7 @@ function SideNavbar() {
                         <span className="hidden lg:block lg:text-sm lg:font-semibold">Field Construct</span>
                     </Link>
                 </div>
-                <SideNavItems />
+                <NavItems />
             </div>
         </>
     );
