@@ -1,11 +1,12 @@
 {
     "cSpell.words": [
-        "Navbars",
-        "heroicons",
-        "formik",
         "Formik",
-        "semibold",
-        "headlessui"
+        "Navbars",
+        "datepicker",
+        "formik",
+        "headlessui",
+        "heroicons",
+        "semibold"
     ],
     //disable editor linters as stylelint is enabled
     "css.validate": false,
