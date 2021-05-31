@@ -1,46 +1,49 @@
+import { React } from 'react';
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import FormControl from "../Form/FormControl";
 import LoadingSpinner from "../LoadingSpinner";
 
-
-function BOQProject(props) {
-
+function ExistingEPCProject(props) {
     const formikInitialValues = {
         projectName: "",
         projectCost: "",
+        revisedProjectCost: "",
         projectAgreementDate: "",
         projectStartDate: "",
         projectCompletionDate: "",
+        projectExtensionDate: "",
         projectCompletionPeriod: "",
         projectMaintenancePeriod: ""
     };
     const formikValidationSchema = Yup.object({
         projectName: Yup.string().required('Required'),
         projectCost: Yup.number().positive().required('Required Integer'),
+        revisedProjectCost: Yup.number().positive().required('Required Integer'),
         projectAgreementDate: Yup.date().required('Required'),
         projectStartDate: Yup.date().required('Required').nullable(),
         projectCompletionDate: Yup.date().required('Required').nullable(),
+        projectExtensionDate: Yup.date().required('Required').nullable(),
         projectCompletionPeriod: Yup.number().positive().required('Required Integer'),
-        projectMaintenancePeriod: Yup.number().positive().required('Required Number')
+        projectMaintenancePeriod: Yup.number().positive().required("Required Integer")
     });
     const onSubmit = (values, onSubmitProps) => {
+
         setTimeout(() => {
             onSubmitProps.setSubmitting(false);
             onSubmitProps.resetForm();
             props.history.push("/app/projects");
         }, 1000);
-        console.log('Form Data', values);
+        console.log(values);
     };
-
 
     return (
         <div className="w-full max-h-full flex flex-col">
             <div className="w-1/2 items-left text-blue-900 cursor-pointer m-2 mb-10 font-bold lg:text-2xl sm:text-xl">
-                Enter <abbr className="text-black" title="Bill of Quantities">BOQ</abbr> Project Details
+                Enter <abbr className="text-black" title="Engineering Procurement and Construction">EPC</abbr> Project Details
             </div>
-            {/* User Data form to enter Bill of Quantities (BOQ) contract details */}
+            {/* User Data form to enter Existing Project Engineering Procurement and Construction contract details */}
             <div className="w-full flex justify-start items-center">
                 <Formik
                     initialValues={formikInitialValues}
@@ -68,6 +71,14 @@ function BOQProject(props) {
                                         placeholder="Enter Project Cost in 'Rupees'"
                                     />
                                     <FormControl
+                                        control="dataInput"
+                                        type="text"
+                                        label="Revised Project Cost"
+                                        id="revisedProjectCost"
+                                        name="revisedProjectCost"
+                                        placeholder="Enter Revised Project Cost in 'Rupees'"
+                                    />
+                                    <FormControl
                                         control="date"
                                         label="Project Agreement Date"
                                         name="projectAgreementDate"
@@ -81,6 +92,11 @@ function BOQProject(props) {
                                         control="date"
                                         label="Project Completion Date"
                                         name="projectCompletionDate"
+                                    />
+                                    <FormControl
+                                        control="date"
+                                        label="Project Extension Date"
+                                        name="projectExtensionDate"
                                     />
                                     <FormControl
                                         control="dataInput"
@@ -120,4 +136,4 @@ function BOQProject(props) {
     )
 };
 
-export default BOQProject;
+export default ExistingEPCProject;

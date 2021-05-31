@@ -1,45 +1,44 @@
+import { React } from 'react';
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import FormControl from "../Form/FormControl";
 import LoadingSpinner from "../LoadingSpinner";
 
-
 function EPCProject(props) {
-
     const formikInitialValues = {
         projectName: "",
         projectCost: "",
-        ProjectAgreementDate: "",
-        ProjectStartDate: "",
-        ProjectCompletionDate: "",
-        ProjectCompletionPeriod: "",
-
-
+        projectAgreementDate: "",
+        projectStartDate: "",
+        projectCompletionDate: "",
+        projectCompletionPeriod: "",
+        projectMaintenancePeriod: ""
     };
     const formikValidationSchema = Yup.object({
         projectName: Yup.string().required('Required'),
         projectCost: Yup.number().positive().required('Required Integer'),
-        ProjectAgreementDate: Yup.date().required('Required'),
-        ProjectStartDate: Yup.date().required('Required').nullable(),
-        ProjectCompletionDate: Yup.date().required('Required').nullable(),
-        ProjectCompletionPeriod: Yup.number().positive().required('Required Integer')
+        projectAgreementDate: Yup.date().required('Required'),
+        projectStartDate: Yup.date().required('Required').nullable(),
+        projectCompletionDate: Yup.date().required('Required').nullable(),
+        projectCompletionPeriod: Yup.number().positive().required('Required Integer'),
+        projectMaintenancePeriod: Yup.number().positive().required('Required Integer')
     });
     const onSubmit = (values, onSubmitProps) => {
         setTimeout(() => {
             onSubmitProps.setSubmitting(false);
             onSubmitProps.resetForm();
-            props.history.push("/auth/login");
+            props.history.push("/app/projects");
         }, 1000);
-        console.log('Form Data', values);
+        console.log(values);
     };
-
 
     return (
         <div className="w-full max-h-full flex flex-col">
             <div className="w-1/2 items-left text-blue-900 cursor-pointer m-2 mb-10 font-bold lg:text-2xl sm:text-xl">
                 Enter <abbr className="text-black" title="Engineering Procurement and Construction">EPC</abbr> Project Details
             </div>
+            {/* User Data form to enter Engineering Procurement and Construction (EPC) contract details */}
             <div className="w-full flex justify-start items-center">
                 <Formik
                     initialValues={formikInitialValues}
@@ -85,10 +84,24 @@ function EPCProject(props) {
                                         control="dataInput"
                                         type="text"
                                         label="Project Completion Period"
-                                        id="ProjectCompletionPeriod"
-                                        name="ProjectCompletionPeriod"
+                                        id="projectCompletionPeriod"
+                                        name="projectCompletionPeriod"
                                         placeholder="Project Completion Period 'Months'"
                                     />
+                                    <FormControl
+                                        control="dataInput"
+                                        type="text"
+                                        label="Project Maintenance Period"
+                                        id="projectMaintenancePeriod"
+                                        name="projectMaintenancePeriod"
+                                        placeholder="Project Maintenance/Defects Liability Period 'Months'"
+                                    />
+                                    <button className="bg-blue-800 text-white active:bg-blue-600 text-sm 
+                                        font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none 
+                                        focus:outline-none mb-1 w-3/4 ease-linear transition-all duration-150"
+                                        type="button">
+                                        Add Data
+                                    </button>
 
                                     <div className="text-center mt-6">
                                         <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
@@ -103,6 +116,6 @@ function EPCProject(props) {
             </div>
         </div>
     )
-}
+};
 
 export default EPCProject;

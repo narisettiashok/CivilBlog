@@ -8,6 +8,8 @@ import NewProject from "../components/Projects/NewProject";
 import ExistingProject from "../components/Projects/ExistingProject";
 import EPCProject from "../components/Projects/EPCProject";
 import BOQProject from "../components/Projects/BOQProject";
+import ExistingEPCProject from "../components/Projects/ExistingEPCProject";
+import ExistingBOQProject from "../components/Projects/ExistingBOQProject";
 
 function MainLayout() {
     return (
@@ -23,8 +25,10 @@ function MainLayout() {
                                 <Route path="/app/projects" exact={true} component={ProjectsPage} />
                                 <Route path="/app/newProject" exact={true} component={NewProject} />
                                 <Route path="/app/existingProject" exact={true} component={ExistingProject} />
-                                <Route path="/app/epc"exact={true} component={EPCProject}/> 
-                                <Route path="/app/boq"exact={true} component={BOQProject}/>
+                                <Route path="/app/epc" exact={true} component={EPCProject} />
+                                <Route path="/app/boq" exact={true} component={BOQProject} />
+                                <Route path="/app/existing/epc" exact={true} component={ExistingEPCProject} />
+                                <Route path="/app/existing/boq" exact={true} component={ExistingBOQProject} />
                                 <Redirect from="/app" to="/app/dashboard" />
                             </Switch>
                         </div>

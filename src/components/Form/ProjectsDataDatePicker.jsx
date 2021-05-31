@@ -1,10 +1,9 @@
 import React from 'react';
-import DateView from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { Field, ErrorMessage } from "formik";
 import TextError from "./TextError";
-
 
 function ProjectsDataDatePicker(props) {
     const { label, name, ...rest } = props;
@@ -19,10 +18,10 @@ function ProjectsDataDatePicker(props) {
                             const { setFieldValue } = form
                             const { value } = field
                             return (
-                                <DateView
+                                <DatePicker
                                     className="focus:outline-none"
                                     id={name} {...field} {...rest}
-                                    selected={value}
+                                    selected={(value && new Date(value)) || null}
                                     onChange={val => setFieldValue(name, val)}
                                     isClearable
                                     placeholderText={"Enter " + label}
@@ -35,6 +34,6 @@ function ProjectsDataDatePicker(props) {
             <ErrorMessage name={name} component={TextError} />
         </div>
     )
-}
+};
 
 export default ProjectsDataDatePicker;
