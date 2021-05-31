@@ -1,8 +1,10 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import DashboardPage from "../pages/DashboardPage";
-import Header from "../components/Navbars/MainNavbar";
+import MainNavbar from "../components/Navbars/MainNavbar";
 import SideNavbar from "../components/Navbars/SideNavbar";
+import UserProfilePage from "../pages/UserProfilePage";
+import SettingsPage from "../pages/SettingsPage";
 
 function MainLayout() {
     return (
@@ -10,11 +12,13 @@ function MainLayout() {
             <main>
                 <section className="absolute w-full h-full">
                     <div className="absolute top-0 w-full h-full">
-                        <Header />
+                        <MainNavbar />
                         <SideNavbar />
-                        <div className="relative max-h-full sm:w-11/12 lg:w-5/6 ml-auto overflow-hidden p-4">
+                        <div className="relative h-full max-h-full sm:w-11/12 lg:w-5/6 ml-auto overflow-hidden p-4">
                             <Switch>
                                 <Route path="/app/dashboard" exact={true} component={DashboardPage} />
+                                <Route path="/app/user-profile" exact={true} component={UserProfilePage} />
+                                <Route path="/app/settings" exact={true} component={SettingsPage} />
                                 <Redirect from="/app" to="/app/dashboard" />
                             </Switch>
                         </div>
