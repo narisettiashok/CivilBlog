@@ -6,8 +6,8 @@ import ConstructionImage from "../../components/ConstructionImage";
 
 import FormContainer from "../../components/FormContainer";
 import FormControl from "../../components/Form/FormControl";
-import LoadingSpinner from "../../components/LoadingSpinner";
 import { PASSWORD_REGEX } from "../../constants";
+import Button from "../../components/Form/Button";
 
 function ResetPasswordPage(props) {
     const formikInitialValues = {
@@ -82,11 +82,11 @@ function ResetPasswordPage(props) {
                                     />
 
                                     <div className="text-center mt-6">
-                                        <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 
-                                            rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                                            type="submit" disabled={!formik.isValid || formik.isSubmitting}>
-                                            Reset Password {formik.isSubmitting && <LoadingSpinner />}
-                                        </button>
+                                        <Button type="submit"
+                                            label="Reset Password"
+                                            disabled={formik.isSubmitting}
+                                            showLoadingSpinner={formik.isSubmitting}
+                                        />
                                     </div>
                                 </Form>
                             )

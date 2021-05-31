@@ -5,9 +5,9 @@ import * as Yup from "yup";
 
 import FormContainer from "../../components/FormContainer";
 import FormControl from "../../components/Form/FormControl";
-import LoadingSpinner from "../../components/LoadingSpinner";
 import ConstructionImage from "../../components/ConstructionImage";
 import { PASSWORD_REGEX } from "../../constants";
+import Button from "../../components/Form/Button";
 
 function ChangePasswordPage(props) {
     const formikInitialValues = {
@@ -16,11 +16,16 @@ function ChangePasswordPage(props) {
         confirmPassword: ""
     };
     const formikValidationSchema = Yup.object({
-        oldPassword: Yup.string().min(8, "Must be 8 characters or more").max(15, "Must be 15 characters or less").required("Required"),
+        oldPassword: Yup.string().min(8, "Must be 8 characters or more")
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
         newPassword: Yup.string()
             .matches(PASSWORD_REGEX.regex, PASSWORD_REGEX.statement)
-            .max(15, "Must be 15 characters or less").required("Required"),
-        confirmPassword: Yup.string().oneOf([Yup.ref("newPassword"), ""], "Password much match").required("Required")
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
+        confirmPassword: Yup.string()
+            .oneOf([Yup.ref("newPassword"), ""], "Password much match")
+            .required("Required")
     });
     const onSubmit = (values, onSubmitProps) => {
         setTimeout(() => {
@@ -89,11 +94,11 @@ function ChangePasswordPage(props) {
                                     />
 
                                     <div className="text-center mt-6">
-                                        <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 
-                                            rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                                            type="submit" disabled={!formik.isValid || formik.isSubmitting}>
-                                            Reset Password {formik.isSubmitting && <LoadingSpinner />}
-                                        </button>
+                                        <Button type="submit"
+                                            label="Reset Password"
+                                            disabled={formik.isSubmitting}
+                                            showLoadingSpinner={formik.isSubmitting}
+                                        />
                                     </div>
                                 </Form>
                             )
