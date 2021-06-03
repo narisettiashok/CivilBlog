@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function NewProject() {
     return (
@@ -16,7 +15,6 @@ function NewProject() {
                 </Link>
             </div>
         </div>
-
     )
 };
 

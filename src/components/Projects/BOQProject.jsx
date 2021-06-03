@@ -4,9 +4,7 @@ import * as Yup from "yup";
 import FormControl from "../Form/FormControl";
 import LoadingSpinner from "../LoadingSpinner";
 
-
 function BOQProject(props) {
-
     const formikInitialValues = {
         projectName: "",
         projectCost: "",
@@ -17,13 +15,13 @@ function BOQProject(props) {
         projectMaintenancePeriod: ""
     };
     const formikValidationSchema = Yup.object({
-        projectName: Yup.string().required('Required'),
-        projectCost: Yup.number().positive().required('Required Integer'),
-        projectAgreementDate: Yup.date().required('Required'),
-        projectStartDate: Yup.date().required('Required').nullable(),
-        projectCompletionDate: Yup.date().required('Required').nullable(),
-        projectCompletionPeriod: Yup.number().positive().required('Required Integer'),
-        projectMaintenancePeriod: Yup.number().positive().required('Required Number')
+        projectName: Yup.string().required("Required"),
+        projectCost: Yup.number().positive().required("Required Integer"),
+        projectAgreementDate: Yup.date().required("Required"),
+        projectStartDate: Yup.date().required("Required").nullable(),
+        projectCompletionDate: Yup.date().required("Required").nullable(),
+        projectCompletionPeriod: Yup.number().positive().required("Required Integer"),
+        projectMaintenancePeriod: Yup.number().positive().required("Required Number")
     });
     const onSubmit = (values, onSubmitProps) => {
         setTimeout(() => {
@@ -31,9 +29,8 @@ function BOQProject(props) {
             onSubmitProps.resetForm();
             props.history.push("/app/projects");
         }, 1000);
-        console.log('Form Data', values);
+        console.log("Form Data", values);
     };
-
 
     return (
         <div className="w-full max-h-full flex flex-col">
@@ -104,7 +101,6 @@ function BOQProject(props) {
                                         type="button">
                                         Add Data
                                     </button>
-
                                     <div className="text-center mt-6">
                                         <button className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                                             type="submit" disabled={!formik.isValid || formik.isSubmitting}>

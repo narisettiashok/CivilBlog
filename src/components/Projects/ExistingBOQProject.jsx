@@ -1,4 +1,3 @@
-import { React } from 'react';
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
@@ -18,15 +17,15 @@ function ExistingBOQProject(props) {
         projectMaintenancePeriod: ""
     };
     const formikValidationSchema = Yup.object({
-        projectName: Yup.string().required('Required'),
-        projectCost: Yup.number().positive().required('Required Integer'),
-        revisedProjectCost: Yup.number().positive().required('Required Integer'),
-        projectAgreementDate: Yup.date().required('Required'),
-        projectStartDate: Yup.date().required('Required').nullable(),
-        projectCompletionDate: Yup.date().required('Required').nullable(),
-        projectExtensionDate: Yup.date().required('Required').nullable(),
-        projectCompletionPeriod: Yup.number().positive().required('Required Integer'),
-        projectMaintenancePeriod: Yup.number().positive().required('Required Integer')
+        projectName: Yup.string().required("Required"),
+        projectCost: Yup.number().positive().required("Required Integer"),
+        revisedProjectCost: Yup.number().positive().required("Required Integer"),
+        projectAgreementDate: Yup.date().required("Required"),
+        projectStartDate: Yup.date().required("Required").nullable(),
+        projectCompletionDate: Yup.date().required("Required").nullable(),
+        projectExtensionDate: Yup.date().required("Required").nullable(),
+        projectCompletionPeriod: Yup.number().positive().required("Required Integer"),
+        projectMaintenancePeriod: Yup.number().positive().required("Required Integer")
     });
     const onSubmit = (values, onSubmitProps) => {
         setTimeout(() => {

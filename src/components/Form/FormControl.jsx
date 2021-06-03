@@ -2,7 +2,7 @@ import React from "react";
 import Checkbox from "./Checkbox";
 import Input from "./Input";
 import ProjectsDataDatePicker from "./ProjectsDataDatePicker";
-import ProjectsDataInput from './ProjectsDataInput';
+import ProjectsDataInput from "./ProjectsDataInput";
 
 function FormControl(props) {
     const { control, ...rest } = props
