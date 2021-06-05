@@ -53,14 +53,3 @@ function Button({ type, label, showLoadingSpinner, isLink, to, color, widthClass
 }
 
 export default Button;
-
-
-
-
-
-// bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow
-//                                             hover:shadow-lg outline-none focus:outline-none ml-2 ease-linear transition-all duration-150 disabled:opacity-50
-
-// w-full shadow outline-none rounded mr-1 mb-1 px-6 py-3 bg-blue-800 text-white text-sm font-bold uppercase text-center
-//     ease-linear transition-all duration-150
-//     hover:shadow-lg focus:outline-none active:bg-blue-600 disabled:opacity-50
