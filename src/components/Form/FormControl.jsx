@@ -1,8 +1,7 @@
 import React from "react";
 import Checkbox from "./Checkbox";
 import Input from "./Input";
-import ProjectsDataDatePicker from "./ProjectsDataDatePicker";
-import ProjectsDataInput from "./ProjectsDataInput";
+import DatePicker from "./DatePicker";
 
 function FormControl(props) {
     const { control, ...rest } = props
@@ -14,7 +13,7 @@ function FormControl(props) {
         case "checkbox":
             return <Checkbox {...rest} />;
         case "date":
-            return <ProjectsDataDatePicker {...rest} />;
+            return <DatePicker {...rest} />;
         default:
             return null;
     }
