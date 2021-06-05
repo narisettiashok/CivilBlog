@@ -6,6 +6,6 @@ function TextError(props) {
             {props.children}
         </div>
     )
-}
+};
 
 export default TextError;

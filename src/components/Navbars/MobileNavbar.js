@@ -1,12 +1,12 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/logo2.png";
 import NavItems from "./NavItems";
-import NavProfile from './NavProfile';
-import NavNotification from './NavNotification';
+import NavProfile from "./NavProfile";
+import NavNotification from "./NavNotification";
 
 function MobileNavbar() {
     return (

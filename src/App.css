@@ -57,3 +57,16 @@ body {
 .form-control {
   @apply border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150;
 }
+
+/* Project Details Form */
+.form-group-project {
+  @apply w-full flex flex-row justify-center items-center mb-5;
+}
+
+.form-label-project {
+  @apply w-1/5 block uppercase text-xs font-bold text-left pr-5 ml-2 mb-2;
+}
+
+.form-control-project {
+  @apply border-b-2 border-l-2 border-blue-300 focus:border-opacity-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 mr-10 mb-2;
+}

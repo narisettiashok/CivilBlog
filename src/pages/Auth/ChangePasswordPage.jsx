@@ -94,11 +94,9 @@ function ChangePasswordPage(props) {
                                     />
 
                                     <div className="text-center mt-6">
-                                        <Button type="submit"
-                                            label="Reset Password"
-                                            disabled={formik.isSubmitting}
-                                            showLoadingSpinner={formik.isSubmitting}
-                                        />
+                                        <Button type="submit" disabled={formik.isSubmitting} showLoadingSpinner={formik.isSubmitting}>
+                                            Reset Password
+                                        </Button>
                                     </div>
                                 </Form>
                             )

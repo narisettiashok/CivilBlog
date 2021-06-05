@@ -4,8 +4,8 @@ import * as Yup from "yup";
 
 import FormContainer from "../../components/FormContainer";
 import FormControl from "../../components/Form/FormControl";
-import LoadingSpinner from "../../components/LoadingSpinner";
 import ConstructionImage from "../../components/ConstructionImage";
+import Button from "../../components/Form/Button";
 
 function LoginPage(props) {
     const formikInitialValues = {
@@ -29,7 +29,7 @@ function LoginPage(props) {
             setSubmitting(false);
             props.history.push("/app/dashboard");
         }, 1000);
-    }
+    };
 
     return (
         <>
@@ -72,12 +72,9 @@ function LoginPage(props) {
                                         </span>
                                     </FormControl>
 
-                                    <button type="submit"
-                                        className="bg-blue-800 text-white active:bg-blue-600 text-sm font-bold uppercase px-6 py-3 rounded shadow
-                                        hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150 disabled:opacity-50"
-                                        disabled={formik.isSubmitting}>
-                                        Login {formik.isSubmitting && <LoadingSpinner />}
-                                    </button>
+                                    <Button type="submit" disabled={formik.isSubmitting} showLoadingSpinner={formik.isSubmitting}>
+                                        Login
+                                    </Button>
                                 </Form>
                             )
                         }

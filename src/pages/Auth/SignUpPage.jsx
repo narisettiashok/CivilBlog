@@ -96,11 +96,9 @@ function SignUpPage(props) {
                                     />
 
                                     <div className="text-center mt-6">
-                                        <Button type="submit"
-                                            label="Sign Up"
-                                            disabled={formik.isSubmitting}
-                                            showLoadingSpinner={formik.isSubmitting}
-                                        />
+                                        <Button type="submit" disabled={formik.isSubmitting} showLoadingSpinner={formik.isSubmitting}>
+                                            Sign up
+                                        </Button>
                                     </div>
                                 </Form>
                             )

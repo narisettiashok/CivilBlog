@@ -90,11 +90,9 @@ function UserProfilePage(props) {
                                 />
 
                                 <div className="sm:col-start-2 sm:justify-self-end">
-                                    <Button type="button"
-                                        label="Save"
-                                        disabled={formik.isSubmitting}
-                                        showLoadingSpinner={formik.isSubmitting}
-                                    />
+                                    <Button type="button" disabled={formik.isSubmitting} showLoadingSpinner={formik.isSubmitting}>
+                                        Save
+                                    </Button>
                                 </div>
                             </Form>
                         )
