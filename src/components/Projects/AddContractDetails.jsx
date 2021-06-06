@@ -11,7 +11,7 @@ function AddContractDetails(props) {
     const formikValidationSchema = getFormikValidationSchema();
 
     function getFormikValidationSchema() {
-        if(props.newProject) {
+        if (props.newProject) {
             return Yup.object({
                 projectName: Yup.string().required("Required"),
                 projectCost: Yup.number().positive().required("Required Number"),
@@ -39,6 +39,7 @@ function AddContractDetails(props) {
     function onSubmit(values, onSubmitProps) {
         onSubmitProps.setSubmitting(false);
         props.previousStep(values);
+        props.nextStep(values);
     };
 
     return (

@@ -8,8 +8,6 @@ function FormControl(props) {
     switch(control) {
         case "input":
             return <Input {...rest} />;
-        case "dataInput":
-            return <ProjectsDataInput {...rest} />;
         case "checkbox":
             return <Checkbox {...rest} />;
         case "date":
