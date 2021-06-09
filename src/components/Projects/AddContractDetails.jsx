@@ -1,8 +1,8 @@
 import { PlusCircleIcon } from "@heroicons/react/outline";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import Button from "../Form/Button";
 
+import Button from "../Form/Button";
 import FormControl from "../Form/FormControl";
 import FormGroupContainer from "../Form/FormGroupContainer";
 
@@ -35,7 +35,6 @@ function AddContractDetails(props) {
             });
         }
     }
-
     function onSubmit(values, onSubmitProps) {
         onSubmitProps.setSubmitting(false);
         props.previousStep(values);

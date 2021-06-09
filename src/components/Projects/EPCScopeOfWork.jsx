@@ -1,27 +1,23 @@
 import { useState } from "react";
 import { AgGridColumn, AgGridReact } from 'ag-grid-react';
 import "ag-grid-enterprise";
-import Button from "../Form/Button";
-
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import ScopeOfWorkData from "./ScopeOfWorkData.js";
+
+import Button from "../Form/Button";
+import scopeOfWorkData from "./Data/scopeOfWorkData.js";
+import {currencyFormatter} from "../../utils/currencyFormatter.js";
+import {weightageFormatter} from "../../utils/weightageFormatter.js";
 
 function EPCScopeOfWorkPage(props) {
     const [gridApi, setGridApi] = useState(null);
     const [gridColumnApi, setGridColumnApi] = useState(null);
 
-    const rowData = ScopeOfWorkData;
-    const headerHeight = 100;
+    const rowData = scopeOfWorkData;
+    const headerHeight = 75;
     const onGridReady = (params) => {
         setGridApi(params.api);
         setGridColumnApi(params.columnApi);
-    };
-    const currencyFormatter = (params) => {
-        return !params.value ? null : ("Rs. " + parseFloat(params.value).toFixed(2));
-    };
-    const weightageFormatter = (params) => {
-        return parseFloat(params.value).toFixed(2) + " %";
     };
     const rowStyle = {
         borderBottom: "0.5px grey"
@@ -81,7 +77,7 @@ function EPCScopeOfWorkPage(props) {
                         <AgGridColumn headerName="Item No" field="itemNo" cellStyle={staticCellStyle} />
                         <AgGridColumn headerName="Description of item" field="description" wrapText={true} autoHeight={true} />
                         <AgGridColumn headerName="Unit" field="unit" />
-                        <AgGridColumn headerName="Weightage in payment shedule in %" field="weightage" aggFunc="sum" valueFormatter={weightageFormatter} />
+                        <AgGridColumn headerName="Weightage in payment schedule in %" field="weightage" aggFunc="sum" valueFormatter={weightageFormatter} />
                         <AgGridColumn headerName="Value as per contract in Rupees" field="value" aggFunc="sum" valueFormatter={currencyFormatter} />
                         <AgGridColumn headerName="Payment Terms as per Agreement" field="payment" valueFormatter={currencyFormatter} />
                         <AgGridColumn headerName="Total length/Number's" field="quantity" />

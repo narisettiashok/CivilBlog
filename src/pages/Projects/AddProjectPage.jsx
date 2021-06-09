@@ -5,7 +5,7 @@ import Stepper from "../../components/Stepper";
 import ChooseProjectType from "../../components/Projects/ChooseProjectType";
 import ChooseContractType from "../../components/Projects/ChooseContractType";
 import AddContractDetails from "../../components/Projects/AddContractDetails";
-import EPCScopeOfWork from "../../components/Projects/EPCScopeOfWorkPage";
+import EPCScopeOfWork from "../../components/Projects/EPCScopeOfWork";
 
 function AddProjectPage() {
     const [steps] = useState([
