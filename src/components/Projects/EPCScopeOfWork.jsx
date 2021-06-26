@@ -1,30 +1,25 @@
-import { useState } from "react";
-import { AgGridColumn, AgGridReact } from 'ag-grid-react';
-import "ag-grid-enterprise";
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import { ReactTabulator } from "react-tabulator";
+import "tabulator-tables/dist/css/tabulator.min.css";
 
 import Button from "../Form/Button";
 import scopeOfWorkData from "./Data/scopeOfWorkData.js";
-import {currencyFormatter} from "../../utils/currencyFormatter.js";
-import {weightageFormatter} from "../../utils/weightageFormatter.js";
 
 function EPCScopeOfWorkPage(props) {
-    const [gridApi, setGridApi] = useState(null);
-    const [gridColumnApi, setGridColumnApi] = useState(null);
-
-    const rowData = scopeOfWorkData;
-    const headerHeight = 75;
-    const onGridReady = (params) => {
-        setGridApi(params.api);
-        setGridColumnApi(params.columnApi);
-    };
-    const rowStyle = {
-        borderBottom: "0.5px grey"
-    };
-    const staticCellStyle = {
-        borderLeft: "0.5px solid white",
-        borderRight: "0.5px solid white",
+    const columns = [
+        { formatter: "rowSelection", titleFormatter: "rowSelection", align: "center", width: 75 },
+        { title: "Item", field: "item" },
+        { title: "Item No", field: "itemNo", width: 100, hozAlign: "center" },
+        { title: "Unit", field: "unit", hozAlign: "center", width: 100 },
+        { title: "Weightage", field: "weightage", hozAlign: "center", width: 120 },
+        { title: "Value", field: "value", hozAlign: "center" },
+        { title: "Payment", field: "paymentTerms", hozAlign: "center" },
+        { title: "Quantity", field: "quantity", hozAlign: "center" }
+    ];
+    let options = {
+        layout: "fitColumns",
+        dataTree: true,
+        dataTreeStartExpanded: true,
+        dataTreeElementColumn: "item",
     };
 
     return (
@@ -33,9 +28,9 @@ function EPCScopeOfWorkPage(props) {
                 <div className="flex flex-row justify-start items-center mb-2">
                     <h2 className="w-1/4 lg:text-2xl sm:text-xl">Project Name</h2>
                     <p className="w-3/4 italic">Construction of 2 lane with hard shoulder of Kohima – Jessami road on NH- 29
-                    from existing Km 76.32 (Near Mesulumi Village) to existing Km 98.38
-                    (Near Chizami Village) (Design Km 74.2 to Km 95.7) Design Length-21.50 Km
-                    under Bharatmala Pariyojana on EPC</p> {/* Here data should update from project Details page */}
+                        from existing Km 76.32 (Near Mesulumi Village) to existing Km 98.38
+                        (Near Chizami Village) (Design Km 74.2 to Km 95.7) Design Length-21.50 Km
+                        under Bharatmala Pariyojana on EPC</p> {/* Here data should update from project Details page */}
                 </div>
                 <div className="w-full flex flex-row justify-start items-center">
                     <h2 className="w-1/4 lg:text-2xl sm:text-xl">Project Cost</h2>
@@ -47,41 +42,15 @@ function EPCScopeOfWorkPage(props) {
                     <h1 className="lg:text-2xl sm:text-xl uppercase font-bold mb-5">Scope of Work</h1>
                 </div>
                 {/* New Project EPC contract scope of work page */}
-                <div className="ag-theme-alpine" style={{ height: "80vh", width: "100%" }}>
-                    <AgGridReact
-                        headerHeight={headerHeight}
-                        defaultColDef={{
-                            flex: 1,
-                            minWidth: 150,
-                            resizable: true
-                        }}
-                        autoGroupColumnDef={{
-                            headerName: 'Item',
-                            minWidth: 300,
-                            cellRendererParams: {
-                                suppressCount: true
-                            }
-                        }}
-                        groupIncludeTotalFooter={true}
-                        enableRangeSelection={true}
-                        animateRows={true}
-                        onGridReady={onGridReady}
-                        rowData={rowData}
-                        autoHeight={true}
-                        wrapText={true}
-                        suppressAggFuncInHeader={true}
-                        rowStyle={rowStyle}
-                    >
-                        <AgGridColumn headerName="Item" field="item" rowGroup={true} hide={true} wrapText={true} autoHeight={true} />
-                        <AgGridColumn headerName="Description Heading" field="descriptionHeading" rowGroup={true} wrapText={true} autoHeight={true} hide={true} />
-                        <AgGridColumn headerName="Item No" field="itemNo" cellStyle={staticCellStyle} />
-                        <AgGridColumn headerName="Description of item" field="description" wrapText={true} autoHeight={true} />
-                        <AgGridColumn headerName="Unit" field="unit" />
-                        <AgGridColumn headerName="Weightage in payment schedule in %" field="weightage" aggFunc="sum" valueFormatter={weightageFormatter} />
-                        <AgGridColumn headerName="Value as per contract in Rupees" field="value" aggFunc="sum" valueFormatter={currencyFormatter} />
-                        <AgGridColumn headerName="Payment Terms as per Agreement" field="payment" valueFormatter={currencyFormatter} />
-                        <AgGridColumn headerName="Total length/Number's" field="quantity" />
-                    </AgGridReact>
+                <div className="w-full">
+                    <ReactTabulator
+                        height={"100%"}
+                        width={"100%"}
+                        responsiveLayout={"collapse"}
+                        data={scopeOfWorkData}
+                        columns={columns}
+                        options={options}
+                    />
                 </div>
             </div>
             <div className="w-full p-4 mt-16 flex justify-center space-x-10">

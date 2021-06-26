@@ -9,12 +9,17 @@
         "Pariyojana",
         "Schedule",
         "Weightage",
+        "browserslist",
+        "compat",
+        "craco",
         "datepicker",
         "formik",
         "headlessui",
         "heroicons",
         "semibold",
-        "subgrade"
+        "stylelint",
+        "subgrade",
+        "tailwindcss"
     ],
     //disable editor linters as stylelint is enabled
     "css.validate": false,
