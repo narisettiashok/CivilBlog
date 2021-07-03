@@ -1,8 +1,8 @@
 import { PlusCircleIcon } from "@heroicons/react/outline";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import Button from "../Form/Button";
 
+import Button from "../Form/Button";
 import FormControl from "../Form/FormControl";
 import FormGroupContainer from "../Form/FormGroupContainer";
 
@@ -11,7 +11,7 @@ function AddContractDetails(props) {
     const formikValidationSchema = getFormikValidationSchema();
 
     function getFormikValidationSchema() {
-        if(props.newProject) {
+        if (props.newProject) {
             return Yup.object({
                 projectName: Yup.string().required("Required"),
                 projectCost: Yup.number().positive().required("Required Number"),
@@ -35,10 +35,10 @@ function AddContractDetails(props) {
             });
         }
     }
-
     function onSubmit(values, onSubmitProps) {
         onSubmitProps.setSubmitting(false);
         props.previousStep(values);
+        props.nextStep(values);
     };
 
     return (

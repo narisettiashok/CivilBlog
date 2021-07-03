@@ -1,12 +1,25 @@
 {
     "cSpell.words": [
+        "Bharatmala",
+        "Chizami",
         "Formik",
+        "Jessami",
+        "Mesulumi",
         "Navbars",
+        "Pariyojana",
+        "Schedule",
+        "Weightage",
+        "browserslist",
+        "compat",
+        "craco",
         "datepicker",
         "formik",
         "headlessui",
         "heroicons",
-        "semibold"
+        "semibold",
+        "stylelint",
+        "subgrade",
+        "tailwindcss"
     ],
     //disable editor linters as stylelint is enabled
     "css.validate": false,
