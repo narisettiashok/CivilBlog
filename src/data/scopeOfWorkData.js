@@ -1,5 +1,5 @@
 /* User need to enter scope of work data */
-const ScopeOfWorkData = [
+const scopeOfWorkData = [
     {
         item: "Road Works including culverts", weightage: 46.71, value: 958778708.58,
         _children: [
@@ -361,4 +361,4 @@ const ScopeOfWorkData = [
     }
 ];
 
-export default ScopeOfWorkData;
+export default scopeOfWorkData;
